@@ -1,40 +1,18 @@
-This project was bootstrapped with [Create Contentful App](https://github.com/contentful/create-contentful-app).
+This project was bootstrapped with [Create Contentful App](https://github.com/contentful/create-contentful-app) to demo a build issue I'm running into.
 
-## How to use
+## How to replicate
 
-Execute create-contentful-app with npm, npx or yarn to bootstrap the example:
-
-```bash
-# npx
-npx create-contentful-app --example nextjs
-
-# npm
-npm init contentful-app -- --example nextjs
-
-# Yarn
-yarn create contentful-app --example nextjs
+```sh
+# If not using nvm, I'm using node 18
+nvm use
+npm run build
 ```
 
-## Available Scripts
+Getting a cjs error here, but I've tried an esm build and run into a different build error there.
 
-In the project directory, you can run:
+```
+- info Collecting page data ...Error [ERR_REQUIRE_ESM]: require() of ES Module /contentful-test/node_modules/lodash-es/lodash.js from /contentful-test/node_modules/@contentful/field-editor-shared/dist/cjs/FieldConnector.js not supported.
+Instead change the require of lodash.js in /contentful-test/node_modules/@contentful/field-editor-shared/dist/cjs/FieldConnector.js to a dynamic import() which is available in all CommonJS modules.
 
-#### `npm run dev`
-
-Runs the app in development mode. Open your app to view it in the browser. The page will reload if you make edits.
-
-#### `npm run build`
-
-Builds the app for production to the `.next` folder. It correctly bundles Next in production mode and optimizes the build for the best performance. Your app is ready to be deployed!
-
-## Libraries to use
-
-To make your app look and feel like Contentful use the following libraries:
-
-- [Forma 36](https://f36.contentful.com/) – Contentful's design system
-- [Contentful Field Editors](https://www.contentful.com/developers/docs/extensibility/field-editors/) – Contentful's field editor React components
-- [React Apps Toolkit](https://www.contentful.com/developers/docs/extensibility/app-framework/react-apps-toolkit/) – Library to simplify build Contentful apps with React
-
-## Learn More
-
-[Read more](https://www.contentful.com/developers/docs/extensibility/app-framework/create-contentful-app/) and check out the video on how to use the CLI.
+...
+```
